@@ -4,5 +4,40 @@ import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 
 function Form({route, method}) {
-    
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
+    const name = method === "login" ? "Login" : "Register"
+
+    const handleSubmit = (e) => {
+        setLoading(true);
+        e.preventDefault();
+
+        try {
+
+        }catch {
+            
+        }
+    }
+    return <form onSubmit={handleSubmit} className="form-container">
+        <h1>{name}</h1>
+        <input 
+            type="text" 
+            className="form-input"
+            value = {username}
+            onchage = {(e)=>setUsername(e.target.value)}
+            placeholder="Username"
+        />
+        <input 
+            type="password" 
+            className="form-input"
+            value = {password}
+            onchage = {(e)=>setUsername(e.target.value)}
+            placeholder="Password"
+        />
+        <button className="form-button" type="submit">
+            {name}
+        </button>
+    </form>
 }
